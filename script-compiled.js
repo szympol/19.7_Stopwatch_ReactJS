@@ -50,6 +50,15 @@ var Stopwatch = function (_React$Component) {
             this.calculate();
         }
     }, {
+        key: "reset",
+        value: function reset() {
+            this.setState({
+                minutes: 0,
+                seconds: 0,
+                miliseconds: 0
+            });
+        }
+    }, {
         key: "calculate",
         value: function calculate() {
             this.setState({ miliseconds: this.state.miliseconds += 1 });
@@ -80,6 +89,11 @@ var Stopwatch = function (_React$Component) {
                         "button",
                         { className: "button", id: "stop", onClick: this.stop.bind(this) },
                         "Stop"
+                    ),
+                    React.createElement(
+                        "button",
+                        { className: "button", id: "reset", onClick: this.reset.bind(this) },
+                        "Restart"
                     )
                 ),
                 React.createElement(
@@ -98,16 +112,6 @@ var Stopwatch = function (_React$Component) {
                 React.createElement("ul", { className: "results" })
             );
         }
-
-        /* reset() {
-             this.times = {
-                 minutes: 0,
-                 seconds: 0,
-                 miliseconds: 0
-             };
-             this.display.innerText = this.format(this.times);
-         }
-        */
 
         /*  addTime() {
               const results = document.querySelector('.results');
@@ -137,20 +141,3 @@ function pad0(value) {
 
 var stopwatch = React.createElement(Stopwatch);
 ReactDOM.render(stopwatch, document.getElementById('stopwatch'));
-
-/*
-const stopwatch = new Stopwatch(
-    document.querySelector('.stopwatch')
-);
-
-let startButton = document.getElementById('start');
-startButton.addEventListener('click', () => stopwatch.start());
-let stopButton = document.getElementById('stop');
-stopButton.addEventListener('click', () => stopwatch.stop());
-let resetButton = document.getElementById('reset');
-resetButton.addEventListener('click', () => stopwatch.reset());
-let addButton = document.getElementById('add');
-addButton.addEventListener('click', () => stopwatch.addTime());
-let clearButton = document.getElementById('clear');
-clearButton.addEventListener('click', () => stopwatch.clearTimeList());
-*/

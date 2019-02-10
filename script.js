@@ -16,14 +16,23 @@ class Stopwatch extends React.Component {
         }
       }
 
-     stop() {
+    stop() {
         this.setState({running: false});
         clearInterval(this.watch);
-      }
+    }
 
     step() {
         if (!this.state.running) return;
         this.calculate();
+    }
+
+    reset() {
+        this.setState({
+                minutes: 0,
+                seconds: 0,
+                miliseconds: 0
+            }
+        );
     }
  
    calculate() {
@@ -45,7 +54,7 @@ class Stopwatch extends React.Component {
         <div className="controls">
           <button className="button" id="start" onClick={this.start.bind(this)}>Start</button>
           <button className="button" id="stop" onClick={this.stop.bind(this)}>Stop</button>
-        
+          <button className="button" id="reset" onClick={this.reset.bind(this)}>Restart</button>
         </div>
         <div className="stopwatch">
           <div>{pad0(this.state.minutes)}:{pad0(this.state.seconds)}:{pad0(Math.floor(this.state.miliseconds))}</div>
@@ -57,15 +66,9 @@ class Stopwatch extends React.Component {
   }
 
 
-   /* reset() {
-        this.times = {
-            minutes: 0,
-            seconds: 0,
-            miliseconds: 0
-        };
-        this.display.innerText = this.format(this.times);
-    }
-*/
+
+  
+
 
   /*  addTime() {
         const results = document.querySelector('.results');
@@ -95,20 +98,3 @@ function pad0(value) {
 
 let stopwatch = React.createElement(Stopwatch);
 ReactDOM.render(stopwatch, document.getElementById('stopwatch'));
-
-/*
-const stopwatch = new Stopwatch(
-    document.querySelector('.stopwatch')
-);
-
-let startButton = document.getElementById('start');
-startButton.addEventListener('click', () => stopwatch.start());
-let stopButton = document.getElementById('stop');
-stopButton.addEventListener('click', () => stopwatch.stop());
-let resetButton = document.getElementById('reset');
-resetButton.addEventListener('click', () => stopwatch.reset());
-let addButton = document.getElementById('add');
-addButton.addEventListener('click', () => stopwatch.addTime());
-let clearButton = document.getElementById('clear');
-clearButton.addEventListener('click', () => stopwatch.clearTimeList());
-*/
