@@ -30,7 +30,8 @@ class Stopwatch extends React.Component {
         this.setState({
                 minutes: 0,
                 seconds: 0,
-                miliseconds: 0
+                miliseconds: 0,
+                running: false
             }
         );
     }
@@ -47,6 +48,19 @@ class Stopwatch extends React.Component {
     }
   }
 
+    addTime() {
+        const results = document.querySelector('.results');
+        const interval = document.createElement('li');
+        const newIntervalArray = results.getElementsByTagName('li');
+
+        interval.innerHTML = `${newIntervalArray.length + 1} interval : ${pad0(this.state.minutes)}:${pad0(this.state.seconds)}:${pad0(Math.floor(this.state.miliseconds))}`;
+        results.appendChild(interval);
+        }
+
+    clearTimeList() {
+        const arrayToClear = document.querySelector('.results');
+        arrayToClear.innerHTML = '';
+    }
     
    render() {
     return (
@@ -59,7 +73,10 @@ class Stopwatch extends React.Component {
         <div className="stopwatch">
           <div>{pad0(this.state.minutes)}:{pad0(this.state.seconds)}:{pad0(Math.floor(this.state.miliseconds))}</div>
         </div>
-        
+       <div className="controls">
+          <button className="button" id="add" onClick={this.addTime.bind(this)}>Add intervals</button>
+          <button className="button" id="clear" onClick={this.clearTimeList.bind(this)}>Clear intervals</button>
+        </div> 
         <ul className="results"></ul>
       </div>
     );
@@ -67,22 +84,7 @@ class Stopwatch extends React.Component {
 
 
 
-  
-
-
-  /*  addTime() {
-        const results = document.querySelector('.results');
-        const interval = document.createElement('li');
-        const newIntervalArray = results.getElementsByTagName('li');
-
-        interval.innerHTML = `${newIntervalArray.length + 1} interval : ${this.format(this.times)}`;
-        results.appendChild(interval);
-    }
-
-    clearTimeList() {
-        const arrayToClear = document.querySelector('.results');
-        arrayToClear.innerHTML = '';
-    }
+  /*  
 
     */
 

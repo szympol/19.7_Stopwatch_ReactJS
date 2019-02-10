@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -26,7 +26,7 @@ var Stopwatch = function (_React$Component) {
     }
 
     _createClass(Stopwatch, [{
-        key: "start",
+        key: 'start',
         value: function start() {
             var _this2 = this;
 
@@ -38,28 +38,29 @@ var Stopwatch = function (_React$Component) {
             }
         }
     }, {
-        key: "stop",
+        key: 'stop',
         value: function stop() {
             this.setState({ running: false });
             clearInterval(this.watch);
         }
     }, {
-        key: "step",
+        key: 'step',
         value: function step() {
             if (!this.state.running) return;
             this.calculate();
         }
     }, {
-        key: "reset",
+        key: 'reset',
         value: function reset() {
             this.setState({
                 minutes: 0,
                 seconds: 0,
-                miliseconds: 0
+                miliseconds: 0,
+                running: false
             });
         }
     }, {
-        key: "calculate",
+        key: 'calculate',
         value: function calculate() {
             this.setState({ miliseconds: this.state.miliseconds += 1 });
             if (this.state.miliseconds >= 100) {
@@ -72,58 +73,78 @@ var Stopwatch = function (_React$Component) {
             }
         }
     }, {
-        key: "render",
+        key: 'addTime',
+        value: function addTime() {
+            var results = document.querySelector('.results');
+            var interval = document.createElement('li');
+            var newIntervalArray = results.getElementsByTagName('li');
+
+            interval.innerHTML = newIntervalArray.length + 1 + ' interval : ' + pad0(this.state.minutes) + ':' + pad0(this.state.seconds) + ':' + pad0(Math.floor(this.state.miliseconds));
+            results.appendChild(interval);
+        }
+    }, {
+        key: 'clearTimeList',
+        value: function clearTimeList() {
+            var arrayToClear = document.querySelector('.results');
+            arrayToClear.innerHTML = '';
+        }
+    }, {
+        key: 'render',
         value: function render() {
             return React.createElement(
-                "div",
-                { className: "timer" },
+                'div',
+                { className: 'timer' },
                 React.createElement(
-                    "div",
-                    { className: "controls" },
+                    'div',
+                    { className: 'controls' },
                     React.createElement(
-                        "button",
-                        { className: "button", id: "start", onClick: this.start.bind(this) },
-                        "Start"
+                        'button',
+                        { className: 'button', id: 'start', onClick: this.start.bind(this) },
+                        'Start'
                     ),
                     React.createElement(
-                        "button",
-                        { className: "button", id: "stop", onClick: this.stop.bind(this) },
-                        "Stop"
+                        'button',
+                        { className: 'button', id: 'stop', onClick: this.stop.bind(this) },
+                        'Stop'
                     ),
                     React.createElement(
-                        "button",
-                        { className: "button", id: "reset", onClick: this.reset.bind(this) },
-                        "Restart"
+                        'button',
+                        { className: 'button', id: 'reset', onClick: this.reset.bind(this) },
+                        'Restart'
                     )
                 ),
                 React.createElement(
-                    "div",
-                    { className: "stopwatch" },
+                    'div',
+                    { className: 'stopwatch' },
                     React.createElement(
-                        "div",
+                        'div',
                         null,
                         pad0(this.state.minutes),
-                        ":",
+                        ':',
                         pad0(this.state.seconds),
-                        ":",
+                        ':',
                         pad0(Math.floor(this.state.miliseconds))
                     )
                 ),
-                React.createElement("ul", { className: "results" })
+                React.createElement(
+                    'div',
+                    { className: 'controls' },
+                    React.createElement(
+                        'button',
+                        { className: 'button', id: 'add', onClick: this.addTime.bind(this) },
+                        'Add intervals'
+                    ),
+                    React.createElement(
+                        'button',
+                        { className: 'button', id: 'clear', onClick: this.clearTimeList.bind(this) },
+                        'Clear intervals'
+                    )
+                ),
+                React.createElement('ul', { className: 'results' })
             );
         }
 
-        /*  addTime() {
-              const results = document.querySelector('.results');
-              const interval = document.createElement('li');
-              const newIntervalArray = results.getElementsByTagName('li');
-                interval.innerHTML = `${newIntervalArray.length + 1} interval : ${this.format(this.times)}`;
-              results.appendChild(interval);
-          }
-            clearTimeList() {
-              const arrayToClear = document.querySelector('.results');
-              arrayToClear.innerHTML = '';
-          }
+        /*  
             */
 
     }]);
