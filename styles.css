@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css?family=VT323');
+
+body {
+  margin: 0 auto;
+  text-align: center;
+  font-family: 'VT323', monospace;
+  background-color: #45aaf2;
+}
+.timer {
+    margin:30px;
+}
+.stopwatch {
+  margin: 0 auto;
+  margin-top: 30px;
+  width: 400px;
+  background-color:#4b6584;
+  color:white;
+  font-size: 100px;
+  border-radius: 10px;
+}
+.button {
+  border: none;
+  color: white;
+  padding: 8px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 30px;
+  margin: 4px 8px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.results {
+  list-style:none;
+  background-color: #4b6584;
+  color:white;
+  width: 360px;
+  margin: 0 auto;
+  margin-top: 30px;
+  border-radius: 10px;
+  font-size: 30px;
+}
+#start {
+  background-color: #20bf6b;
+}
+#stop {
+  background-color: #eb3b5a;
+}
+#reset, #clear{
+background-color: #a5b1c2;
+}
+#add, #clear {
+  margin-top: 30px;
+  margin-left: 2px;
+  font-size: 20px;
+}
+#add {
+  background-color: #3EFF04;
+}
+
+li {
+  margin: 3px;
+  margin-left: -30px;
+}
