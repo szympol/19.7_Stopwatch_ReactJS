@@ -81,13 +81,6 @@ class Stopwatch extends React.Component {
       </div>
     );
   }
-
-
-
-  /*  
-
-    */
-
 }
 
 function pad0(value) {
