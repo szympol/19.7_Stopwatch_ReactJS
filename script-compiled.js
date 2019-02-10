@@ -143,10 +143,6 @@ var Stopwatch = function (_React$Component) {
                 React.createElement('ul', { className: 'results' })
             );
         }
-
-        /*  
-            */
-
     }]);
 
     return Stopwatch;
