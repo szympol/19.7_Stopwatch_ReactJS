@@ -5,7 +5,8 @@ class Stopwatch extends React.Component {
       minutes: 0,
       seconds: 0,
       miliseconds: 0,
-      running: false
+      running: false,
+      intervals: []
     };
   }
 
@@ -48,19 +49,15 @@ class Stopwatch extends React.Component {
   }
 
   addTime() {
-    const results = document.querySelector(".results");
-    const interval = document.createElement("li");
-    const newIntervalArray = results.getElementsByTagName("li");
-
-    interval.innerHTML = `${newIntervalArray.length + 1} interval : ${pad0(
-      this.state.minutes
-    )}:${pad0(this.state.seconds)}:${pad0(Math.floor(this.state.miliseconds))}`;
-    results.appendChild(interval);
+    this.setState({
+      intervals: this.state.intervals.concat([`: ${pad0(this.state.minutes)}:${pad0(this.state.seconds)}:${pad0(Math.floor(this.state.miliseconds))}`])
+    })
   }
 
   clearTimeList() {
-    const arrayToClear = document.querySelector(".results");
-    arrayToClear.innerHTML = "";
+    this.setState({
+      intervals: []
+    })
   }
 
   render() {
@@ -95,7 +92,11 @@ class Stopwatch extends React.Component {
             Clear intervals
           </button>
         </div>
-        <ul className="results" />
+        <ul className="results">
+        { this.state.intervals.map((interval, i) =>
+              <li>{i + 1} Interval {(interval)}</li>)
+          }
+        </ul>
       </div>
     );
   }

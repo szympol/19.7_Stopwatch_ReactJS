@@ -20,7 +20,8 @@ var Stopwatch = function (_React$Component) {
       minutes: 0,
       seconds: 0,
       miliseconds: 0,
-      running: false
+      running: false,
+      intervals: []
     };
     return _this;
   }
@@ -75,18 +76,16 @@ var Stopwatch = function (_React$Component) {
   }, {
     key: "addTime",
     value: function addTime() {
-      var results = document.querySelector(".results");
-      var interval = document.createElement("li");
-      var newIntervalArray = results.getElementsByTagName("li");
-
-      interval.innerHTML = newIntervalArray.length + 1 + " interval : " + pad0(this.state.minutes) + ":" + pad0(this.state.seconds) + ":" + pad0(Math.floor(this.state.miliseconds));
-      results.appendChild(interval);
+      this.setState({
+        intervals: this.state.intervals.concat([": " + pad0(this.state.minutes) + ":" + pad0(this.state.seconds) + ":" + pad0(Math.floor(this.state.miliseconds))])
+      });
     }
   }, {
     key: "clearTimeList",
     value: function clearTimeList() {
-      var arrayToClear = document.querySelector(".results");
-      arrayToClear.innerHTML = "";
+      this.setState({
+        intervals: []
+      });
     }
   }, {
     key: "render",
@@ -144,7 +143,19 @@ var Stopwatch = function (_React$Component) {
             "Clear intervals"
           )
         ),
-        React.createElement("ul", { className: "results" })
+        React.createElement(
+          "ul",
+          { className: "results" },
+          this.state.intervals.map(function (interval, i) {
+            return React.createElement(
+              "li",
+              null,
+              i + 1,
+              " Interval ",
+              interval
+            );
+          })
+        )
       );
     }
   }]);
