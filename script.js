@@ -50,14 +50,18 @@ class Stopwatch extends React.Component {
 
   addTime() {
     this.setState({
-      intervals: this.state.intervals.concat([`: ${pad0(this.state.minutes)}:${pad0(this.state.seconds)}:${pad0(Math.floor(this.state.miliseconds))}`])
-    })
+      intervals: this.state.intervals.concat([
+        `: ${pad0(this.state.minutes)}:${pad0(this.state.seconds)}:${pad0(
+          Math.floor(this.state.miliseconds)
+        )}`
+      ])
+    });
   }
 
   clearTimeList() {
     this.setState({
       intervals: []
-    })
+    });
   }
 
   render() {
@@ -93,9 +97,11 @@ class Stopwatch extends React.Component {
           </button>
         </div>
         <ul className="results">
-        { this.state.intervals.map((interval, i) =>
-              <li>{i + 1} Interval {(interval)}</li>)
-          }
+          {this.state.intervals.map((interval, i) => (
+            <li>
+              {i + 1} Interval {interval}
+            </li>
+          ))}
         </ul>
       </div>
     );
