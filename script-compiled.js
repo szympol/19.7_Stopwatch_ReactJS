@@ -149,7 +149,7 @@ var Stopwatch = function (_React$Component) {
           this.state.intervals.map(function (interval, i) {
             return React.createElement(
               "li",
-              null,
+              { key: i },
               i + 1,
               " Interval ",
               interval
