@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "npm-run-all -p watch:*",
-    "watch:browsersync": "browser-sync start --server --files *.html *.js *.css",
+    "watch:browsersync": "browser-sync start --server --files *.html script.js *.css",
     "watch:start": "babel script.js --watch --out-file script-compiled.js"
   },
   "author": "Szymon Polanowski",
