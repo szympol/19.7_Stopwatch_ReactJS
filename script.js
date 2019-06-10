@@ -98,7 +98,7 @@ class Stopwatch extends React.Component {
         </div>
         <ul className="results">
           {this.state.intervals.map((interval, i) => (
-            <li>
+            <li key={i}>
               {i + 1} Interval {interval}
             </li>
           ))}
