@@ -1,4 +1,4 @@
-[<img src="https://github.com/szympol/19.7_Stopwatch_ReactJS/blob/master/images/main.JPG?raw=true" align="right" alt="stopwatch" width="40%">](https://github.com/szympol/19.7_Stopwatch_ReactJS)
+[<img src="https://github.com/szympol/Stopwatch/blob/master/images/main.JPG?raw=true" align="right" alt="stopwatch" width="40%">](https://github.com/szympol/Stopwatch)
 
 # Stopwatch in ReactJS
 **`[ES6] [React]`**
