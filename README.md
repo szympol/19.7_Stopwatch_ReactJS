@@ -16,7 +16,7 @@ Simple stopwatch app. Count time and record intervals. This project includes:
 
 ## Getting Started
 
-- [View project online](https://szympol.github.io/19.7_Stopwatch_ReactJS/)
+- [View project online](https://szympol.github.io/Stopwatch/)
 
 Please follow instructions below, if you are willing to run the project locally.
 
