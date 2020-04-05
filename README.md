@@ -31,7 +31,7 @@ Please copy and paste below commands to your Git terminal step by step to get a 
 Download a repository:
 
 ```node
-git clone git@github.com:szympol/19.7_Stopwatch_ReactJS.git stopwatch
+git clone git@github.com:szympol/Stopwatch.git
 ```
 
 Go to the project working directory:
